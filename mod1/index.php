@@ -443,9 +443,5 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 $SOBE = \TYPO3\CMS\Core\Utility\GeneralUtility :: makeInstance('tx_wfqbe_module1');
 $SOBE->init();
 
-// Include files?
-foreach ($SOBE->include_once as $INC_FILE)
-	include_once ($INC_FILE);
-
 $SOBE->main();
 $SOBE->printContent()
