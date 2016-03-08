@@ -22,6 +22,7 @@ $TCA["tx_wfqbe_credentials"] = Array (
 			"label" => "LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_credentials.type",
 			'config' => Array (
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'items' => Array (
 					Array('LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_credentials.type.I.0', 'standard'),
 					Array('LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_credentials.type.I.1', 'uri'),
@@ -43,6 +44,7 @@ $TCA["tx_wfqbe_credentials"] = Array (
 			"label" => "LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_credentials.dbms",		
 			"config" => Array (
 				"type" => "select",
+				"renderType" => "selectSingle",
 				"items" => Array (
 					Array("LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_credentials.dbms.I.0", "mysql"),
 					Array("LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_credentials.dbms.I.1", "postgres"),
@@ -78,6 +80,7 @@ $TCA["tx_wfqbe_credentials"] = Array (
 			"label" => "LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_credentials.conn_type",		
 			"config" => Array (
 				"type" => "select",
+				"renderType" => "selectSingle",
 				"items" => Array (
 					Array("LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_credentials.conn_type.I.0", "Connetc"),
 					Array("LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_credentials.conn_type.I.1", "PConnect"),
@@ -118,6 +121,7 @@ $TCA["tx_wfqbe_credentials"] = Array (
 				"label" => "LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_credentials.connection_localconf",
 				"config" => Array (
 						"type" => "select",
+						"renderType" => "selectSingle",
 						"items" => array(array('','')),
 						"size" => 1,
 						"maxitems" => 1,
@@ -158,6 +162,7 @@ $TCA["tx_wfqbe_query"] = Array (
 			"label" => "LLL:EXT:lang/locallang_general.xml:LGL.fe_group",
 			"config" => Array (
 				"type" => "select",
+				"renderType" => "selectSingle",
 				"items" => Array (
 					Array("", 0),
 					Array("LLL:EXT:lang/locallang_general.xml:LGL.hide_at_login", -1),
@@ -171,6 +176,7 @@ $TCA["tx_wfqbe_query"] = Array (
 			"label" => "LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_query.type",
 			'config' => Array (
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'items' => Array (
 					Array('LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_query.type.I.0', 'select'),
 					Array('LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_query.type.I.1', 'insert'),
@@ -260,6 +266,7 @@ $TCA["tx_wfqbe_query"] = Array (
 			"label" => "LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_query.credentials",		
 			"config" => Array (
 				"type" => "select",	
+				"renderType" => "selectSingle",
 				"items" => Array (
 					Array("LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_query.credentials.I.0", "#TYPO3DB#"),
 				),
@@ -408,6 +415,7 @@ $TCA["tx_wfqbe_backend"] = Array (
 			"label" => "LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_backend.searchq_position",
 			"config" => Array (
 				"type" => "select",
+				"renderType" => "selectSingle",
 				"items" => Array (
 					Array("LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_backend.searchq_position.I.0", "bottom"),
 					Array("LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_backend.searchq_position.I.1", "top"),
@@ -421,6 +429,7 @@ $TCA["tx_wfqbe_backend"] = Array (
 				"label" => "LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_backend.export_mode",
 				"config" => Array (
 					"type" => "select",
+					"renderType" => "selectSingle",
 					"items" => Array (
 						Array("LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_backend.export_mode.I.0", ""),
 						Array("LLL:EXT:wfqbe/locallang_db.xml:tx_wfqbe_backend.export_mode.I.1", "csv"),

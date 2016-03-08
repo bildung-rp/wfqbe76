@@ -661,17 +661,4 @@ class tx_wfqbe_belib	{
         return $result;
 
     }
-
-    
-
-    
-
-	
-
 }
-
-
-
-
-
-?>
