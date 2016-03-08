@@ -438,10 +438,6 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 	
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/wfqbe/mod1/index.php']) {
-	include_once ($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/wfqbe/mod1/index.php']);
-}
-
 
 // Make instance:
 $SOBE = \TYPO3\CMS\Core\Utility\GeneralUtility :: makeInstance('tx_wfqbe_module1');
@@ -453,4 +449,3 @@ foreach ($SOBE->include_once as $INC_FILE)
 
 $SOBE->main();
 $SOBE->printContent()
-?>

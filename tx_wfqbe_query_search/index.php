@@ -323,13 +323,6 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe'
 
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/wfqbe/tx_wfqbe_query_search/index.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/wfqbe/tx_wfqbe_query_search/index.php']);
-}
-
-
-
-
 // Make instance:
 $SOBE = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_wfqbe_tx_wfqbe_query_searchwiz');
 $SOBE->init();
@@ -337,5 +330,3 @@ $SOBE->init();
 
 $SOBE->main();
 $SOBE->printContent();
-
-?>

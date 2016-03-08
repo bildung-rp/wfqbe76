@@ -1122,14 +1122,4 @@ $html .= '<br />-----';
 		$row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
 		$this->blocks = $API->xml2array($row["insertq"]);
 	}
-	
-	
-	
 }
-
-
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/wfqbe/tx_wfqbe_query_insert/class.tx_wfqbe_insertform_generator.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/wfqbe/tx_wfqbe_query_insert/class.tx_wfqbe_insertform_generator.php']);
-}
-?>
