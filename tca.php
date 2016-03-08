@@ -218,7 +218,9 @@ $TCA["tx_wfqbe_query"] = Array (
 						"type" => "script",
 						"notNewRecords" => 1,
 						"icon" => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("wfqbe")."tx_wfqbe_query_query/wizard_icon.gif",
-						"script" => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("wfqbe")."tx_wfqbe_query_query/index.php",
+						"module" => array(
+							"name" => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("wfqbe")."tx_wfqbe_query_query/index.php",
+						),
 					),
 				),
 			)
@@ -237,7 +239,9 @@ $TCA["tx_wfqbe_query"] = Array (
 						"type" => "script",
 						"notNewRecords" => 1,
 						"icon" => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("wfqbe")."tx_wfqbe_query_search/wizard_icon.gif",
-						"script" => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("wfqbe")."tx_wfqbe_query_search/index.php",
+						"module" => array(
+							"name" => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("wfqbe")."tx_wfqbe_query_search/index.php",
+						),
 					),
 				),
 			)
@@ -256,7 +260,9 @@ $TCA["tx_wfqbe_query"] = Array (
 						"type" => "script",
 						"notNewRecords" => 1,
 						"icon" => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("wfqbe")."tx_wfqbe_query_insert/wizard_icon.gif",
-						"script" => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("wfqbe")."tx_wfqbe_query_insert/index.php",
+						"module" => array(
+							"name" => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("wfqbe")."tx_wfqbe_query_insert/index.php",
+						),
 					),
 				),
 			)

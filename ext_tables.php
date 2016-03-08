@@ -89,9 +89,16 @@ if (TYPO3_MODE=="BE")	$TBE_MODULES_EXT["xMOD_db_new_content_el"]["addElClasses"]
 
 
 if (TYPO3_MODE == 'BE')    {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule('user','txwfqbeM1','',\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'mod1/');        
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule('web','txwfqbeM2','',\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'mod2/');
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
+		'user',
+		'txwfqbeM1',
+		'',
+		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'mod1/'
+	);
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
+		'web',
+		'txwfqbeM2',
+		'',
+		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'mod2/'
+	);
 }
-
-
-?>
