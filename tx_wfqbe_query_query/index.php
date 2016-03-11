@@ -199,7 +199,7 @@ class tx_wfqbe_tx_wfqbe_query_querywiz extends t3lib_SCbase {
 
 						// ShortCut
 						if ($BE_USER->mayMakeShortcut())	{
-							$this->content.=$this->doc->spacer(20).$this->doc->section('',$this->doc->makeShortcutIcon('id',implode(',',array_keys($this->MOD_MENU)),$this->MCONF['name']));
+							$this->content.=$this->doc->spacer(20).$this->doc->section('',$this->doc->makeShortcutIcon('id',implode(',',array_keys($this->MOD_MENU)),$this->$GLOBALS['TBE_MODULES']['_configuration']['tx_wfqbe_query_query']['name']));
 						}
 					}
 					$this->content.=$this->doc->spacer(10).'</div>';

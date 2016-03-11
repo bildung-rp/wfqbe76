@@ -32,7 +32,7 @@ require_once($BACK_PATH.'init.php');
 $LANG->includeLLFile('EXT:wfqbe/mod2/locallang.xml');
 //require_once(PATH_t3lib.'class.t3lib_scbase.php');
 require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('backend') . 'Classes/Module/BaseScriptClass.php');
-$BE_USER->modAccess($MCONF,1);    // This checks permissions and exits if the users has no permission for entry.
+$BE_USER->modAccess($GLOBALS['TBE_MODULES']['_configuration']['txwfqbeM2'],1);    // This checks permissions and exits if the users has no permission for entry.
     // DEFAULT initialization of a module [END]
 
 
