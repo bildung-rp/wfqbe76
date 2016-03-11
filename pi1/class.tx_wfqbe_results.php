@@ -478,7 +478,7 @@ class tx_wfqbe_results {
 				eval('$mA["###COLUMN_NAME###"]=$this->cObj->'.$this->conf["customHeader."][$row["uid"]."."][$i].'($confArray);');
 				if ($confArray['enableOrderByHeaders']==1)
 					$enableOrderByHeaders = 1;
-				elseif ($confArray['enableOrderByHeaders']==0 && t3lib_utility_Math::canBeInterpretedAsInteger($confArray['enableOrderByHeaders']))
+				elseif ($confArray['enableOrderByHeaders']==0 && \TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($confArray['enableOrderByHeaders']))
 					$enableOrderByHeaders = 0;
 			}	elseif ($this->conf['globalCustomProcess.'][$marker]) {
 				$wfqbeArray = array();
@@ -488,7 +488,7 @@ class tx_wfqbe_results {
 				eval('$mA["###COLUMN_NAME###"]=$this->cObj->'.$this->conf["globalCustomHeader."][$i].'($confArray);');
 				if ($confArray['enableOrderByHeaders']==1)
 					$enableOrderByHeaders = 1;
-				elseif ($confArray['enableOrderByHeaders']==0 && t3lib_utility_Math::canBeInterpretedAsInteger($confArray['enableOrderByHeaders']))
+				elseif ($confArray['enableOrderByHeaders']==0 && \TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($confArray['enableOrderByHeaders']))
 					$enableOrderByHeaders = 0;
 			}	else	{
 				$mA["###COLUMN_NAME###"]= $field->name;
@@ -687,7 +687,7 @@ class tx_wfqbe_results {
 					eval('$mA["###HEADER_".$col."###"]=$this->cObj->'.$confCustomHeaderObj.'($confArray);');
 					if ($confArray['enableOrderByHeaders']==1)
 						$enableOrderByHeaders = 1;
-					elseif ($confArray['enableOrderByHeaders']==0 && t3lib_utility_Math::canBeInterpretedAsInteger($confArray['enableOrderByHeaders']))
+					elseif ($confArray['enableOrderByHeaders']==0 && \TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($confArray['enableOrderByHeaders']))
 						$enableOrderByHeaders = 0;
 				}	else	{
 					$mA["###HEADER_".$col."###"]= $col;

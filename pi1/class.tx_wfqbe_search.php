@@ -216,9 +216,9 @@ class tx_wfqbe_search {
 		}
 		
 		$additionalParams = '';
-		if ($value['form']['size']!='' && t3lib_utility_Math::canBeInterpretedAsInteger($value['form']['size']))
+		if ($value['form']['size']!='' && \TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($value['form']['size']))
 			$additionalParams .= ' size="'.$value['form']['size'].'"';
-		if ($value['form']['maxlength']!='' && t3lib_utility_Math::canBeInterpretedAsInteger($value['form']['maxlength']))
+		if ($value['form']['maxlength']!='' && \TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($value['form']['maxlength']))
 			$additionalParams .= ' maxlength="'.$value['form']['maxlength'].'"';
 		if ($value['form']['additional_attributes']!='')
 			$additionalParams .= ' '.$value['form']['additional_attributes'];

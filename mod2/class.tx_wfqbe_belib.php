@@ -132,7 +132,7 @@ class tx_wfqbe_belib	{
 
 		$where = '';
 
-		if (t3lib_utility_Math::canBeInterpretedAsInteger($backend_id) && $backend_id>0)	{
+		if (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($backend_id) && $backend_id>0)	{
 
 			$where .= ' AND uid='.$backend_id;
 

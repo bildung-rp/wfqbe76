@@ -243,7 +243,7 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 		$content .= '<option value=""></option>';
 		
 		if ($BE_USER->userTS['module.']['user_txwfqbeM1.']['allowedCredentials']=='' || ($BE_USER->userTS['module.']['user_txwfqbeM1.']['allowedCredentials']!='' && \TYPO3\CMS\Core\Utility\GeneralUtility::inList($BE_USER->userTS['module.']['user_txwfqbeM1.']['allowedCredentials'], '0')))	{
-			if (\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('credentials')==0 && t3lib_utility_Math::canBeInterpretedAsInteger(\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('credentials')))
+			if (\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('credentials')==0 && \TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger(\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('credentials')))
 				$selected = ' selected="selected"';
 			else
 				$selected = '';
@@ -270,7 +270,7 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 		global $LANG, $BE_USER;
 		$content = '<label for="table">'.$LANG->getLL('label_table').'<label>: <select onchange="submit();" id="table" name="table">';
 		
-		if (t3lib_utility_Math::canBeInterpretedAsInteger($credentials))	{
+		if (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($credentials))	{
 			
 			$CONNECTION = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("tx_wfqbe_connect");
 			$this->conn = $CONNECTION->connectNow($credentials);
@@ -415,7 +415,7 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 			}
 			
 			$dict = NewDataDictionary($this->conn);
-			$flds = $field['name']." ".$field['type'].(t3lib_utility_Math::canBeInterpretedAsInteger($field['maxlength']) ? "(".$field['maxlength'].")" : "");
+			$flds = $field['name']." ".$field['type'].(\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($field['maxlength']) ? "(".$field['maxlength'].")" : "");
 			$sqlarray = $dict->ChangeTableSQL($table, $flds);
 			$dict->ExecuteSQLArray($sqlarray);
 			

@@ -254,7 +254,7 @@ class tx_wfqbe_insert {
 					require_once(PATH_t3lib.'class.t3lib_tcemain.php');
 					$tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('t3lib_TCEmain');
 					foreach ($clear_cache as $pUid)	{
-						if (t3lib_utility_Math::canBeInterpretedAsInteger($pUid))
+						if (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($pUid))
 							$tce->clear_cacheCmd($pUid);
 					}
 				}
@@ -420,7 +420,7 @@ class tx_wfqbe_insert {
 			$wfqbe_add_new = $this->pibase->piVars['wfqbe_add_new'];
 			$this->old_piVars = $this->pibase->piVars;
 			if ($this->pibase->piVars['submit_modify']=='')	{
-				if (t3lib_utility_Math::canBeInterpretedAsInteger($this->pibase->piVars['wfqbe_edit_subrecord']) && $this->pibase->piVars['wfqbe_edit_subrecord']!='')	{
+				if (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($this->pibase->piVars['wfqbe_edit_subrecord']) && $this->pibase->piVars['wfqbe_edit_subrecord']!='')	{
 					$wfqbe_edit_subrecord = $this->pibase->piVars['wfqbe_edit_subrecord'];
 					unset($this->pibase->piVars);
 					$this->initValues($h, $wfqbe_edit_subrecord);
@@ -1856,7 +1856,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 		$label = '';
 		if (is_array($field_conf))	{
 			foreach ($field_conf as $key => $value)	{
-				if (t3lib_utility_Math::canBeInterpretedAsInteger($key))	{
+				if (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($key))	{
 					if ($value['value']==$v && $value['label']!='')	{
 						$label = $value['label'];
 						break;

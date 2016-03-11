@@ -211,7 +211,7 @@ class tx_wfqbe_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 		if ($this->conf['ff_data']['templateFile']!='')	{
 			if (strpos($this->conf['ff_data']['templateFile'], 'media:')!==false)	{
 				$file = explode(':', $this->conf['ff_data']['templateFile']);
-				if (t3lib_utility_Math::canBeInterpretedAsInteger($file[1]))	{
+				if (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($file[1]))	{
 					$resDam = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'tx_dam', 'uid='.$file[1].$this->cObj->enableFields('tx_dam'));
 					if ($resDam!==false && $GLOBALS['TYPO3_DB']->sql_num_rows($resDam)==1)	{
 						$rowDam = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($resDam);
@@ -363,7 +363,7 @@ class tx_wfqbe_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 			$where = 'tx_wfqbe_query.uid='.intval($this->piVars['wfqbe_results_query']).' AND ';
 		}	elseif ($this->piVars['wfqbe_add_new']!='')	{
 			$where = 'tx_wfqbe_query.uid='.intval($this->insertBlocks['fields'][$this->piVars['wfqbe_add_new']]['form']['add_new']).' AND ';
-		}	elseif (t3lib_utility_Math::canBeInterpretedAsInteger($this->piVars['wfqbe_select_wizard']))	{
+		}	elseif (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($this->piVars['wfqbe_select_wizard']))	{
 			$where = 'tx_wfqbe_query.uid='.intval($this->insertBlocks['fields'][$this->piVars['wfqbe_select_wizard']]['form']['select_wizard']).' AND ';
 		}	else	{
 			$where = 'tx_wfqbe_query.uid='.intval($this->conf['ff_data']['queryObject']).' AND ';
