@@ -28,8 +28,6 @@
  */
 
 
-//require_once(PATH_tslib.'class.tslib_pibase.php');
-
 class tx_wfqbe_api_array2xml{
 	var $extKey = 'tx_wfqbe_api';	// The extension key.
 	

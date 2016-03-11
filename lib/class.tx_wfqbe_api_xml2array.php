@@ -28,7 +28,6 @@
  */
 
 
-//require_once(PATH_tslib.'class.tslib_pibase.php');
 require_once('class.tx_wfqbe_api_xml2data_structure.php');
 
 class tx_wfqbe_api_xml2array {

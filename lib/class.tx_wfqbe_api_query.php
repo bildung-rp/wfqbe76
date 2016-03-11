@@ -35,8 +35,6 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe'
 require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe')."tx_wfqbe_query_query/class.tx_wfqbe_queryform_generator.php");
 
 
-//require_once(PATH_tslib.'class.tslib_pibase.php');
-
 class tx_wfqbe_api_query{
 	var $extKey = 'wfqbe';	// The extension key.
 	
