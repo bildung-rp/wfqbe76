@@ -96,7 +96,7 @@ class tx_wfqbe_belib	{
 
 	function getContent($caller)	{
 
-		global $BE_USER,$LANG;
+		global $LANG;
 
 		
 
@@ -582,7 +582,6 @@ class tx_wfqbe_belib	{
 
     function retrievePageConfig($pageId) {
 
-        global $BE_USER;
 	if (intval(str_replace('.','',TYPO3_branch))<62)
 
 	    	require_once(PATH_t3lib.'class.t3lib_page.php');

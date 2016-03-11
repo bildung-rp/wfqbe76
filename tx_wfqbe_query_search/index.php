@@ -30,8 +30,6 @@
 
 
 	// DEFAULT initialization of a module [BEGIN]
-unset($MCONF);
-require ('conf.php');
 require ($BACK_PATH.'init.php');
 if (intval(str_replace('.','',TYPO3_branch))<62) {
 	require ($BACK_PATH.'template.php');
@@ -44,7 +42,7 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe'
 	// ....(But no access check here...)
 	// DEFAULT initialization of a module [END]
 
-			class tx_wfqbe_tx_wfqbe_query_searchwiz extends t3lib_SCbase {
+			class tx_wfqbe_query_searchwiz extends t3lib_SCbase {
 			var $P;
 			var $qbe;
 			/**
@@ -70,7 +68,7 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe'
  * @return	[type]		...
  */
 				function main()	{
-					global $BE_USER,$LANG,$BACK_PATH,$TCA_DESCR,$TCA,$CLIENT,$TYPO3_CONF_VARS;
+					global $LANG,$BACK_PATH,$TCA_DESCR,$TCA,$CLIENT,$TYPO3_CONF_VARS;
 					$this->P = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('P');
 
 					$this->id = $this->P['pid'];
@@ -177,8 +175,8 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe'
 
 					$this->pageinfo = t3lib_BEfunc::readPageAccess($this->id,$this->perms_clause);
 					$access = is_array($this->pageinfo) ? 1 : 0;
-					if (($this->id && $access) || ($BE_USER->user['admin'] && !$this->id))	{
-						if ($BE_USER->user['admin'] && !$this->id)	{
+					if (($this->id && $access) || ($GLOBALS['BE_USER']->user['admin'] && !$this->id))	{
+						if ($GLOBALS['BE_USER']->user['admin'] && !$this->id)	{
 							$this->pageinfo=array('title' => '[root-level]','uid'=>0,'pid'=>0);
 						}
 						
@@ -198,7 +196,7 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe'
 
 
 						// ShortCut
-						if ($BE_USER->mayMakeShortcut())	{
+						if ($GLOBALS['BE_USER']->mayMakeShortcut())	{
 							$this->content.=$this->doc->spacer(20).$this->doc->section('',$this->doc->makeShortcutIcon('id',implode(',',array_keys($this->MOD_MENU)),$this->$GLOBALS['TBE_MODULES']['_configuration']['tx_wfqbe_query_search']['name']));
 						}
 					}
@@ -324,7 +322,7 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe'
 
 
 // Make instance:
-$SOBE = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_wfqbe_tx_wfqbe_query_searchwiz');
+$SOBE = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_wfqbe_query_searchwiz');
 $SOBE->init();
 
 

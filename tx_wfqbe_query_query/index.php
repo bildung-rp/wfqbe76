@@ -72,7 +72,7 @@ class tx_wfqbe_tx_wfqbe_query_querywiz extends t3lib_SCbase {
  * @return	[type]		...
  */
 				function main()	{
-					global $BE_USER,$LANG,$BACK_PATH,$TCA_DESCR,$TCA,$CLIENT,$TYPO3_CONF_VARS;
+					global $LANG,$BACK_PATH,$TCA_DESCR,$TCA,$CLIENT,$TYPO3_CONF_VARS;
 					$this->P = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('P');
 
 					$this->id = $this->P['pid'];
@@ -178,8 +178,8 @@ class tx_wfqbe_tx_wfqbe_query_querywiz extends t3lib_SCbase {
 
 					$this->pageinfo = t3lib_BEfunc::readPageAccess($this->id,$this->perms_clause);
 					$access = is_array($this->pageinfo) ? 1 : 0;
-					if (($this->id && $access) || ($BE_USER->user['admin'] && !$this->id))	{
-						if ($BE_USER->user['admin'] && !$this->id)	{
+					if (($this->id && $access) || ($GLOBALS['BE_USER']->user['admin'] && !$this->id))	{
+						if ($GLOBALS['BE_USER']->user['admin'] && !$this->id)	{
 							$this->pageinfo=array('title' => '[root-level]','uid'=>0,'pid'=>0);
 						}
 
@@ -198,7 +198,7 @@ class tx_wfqbe_tx_wfqbe_query_querywiz extends t3lib_SCbase {
 
 
 						// ShortCut
-						if ($BE_USER->mayMakeShortcut())	{
+						if ($GLOBALS['BE_USER']->mayMakeShortcut())	{
 							$this->content.=$this->doc->spacer(20).$this->doc->section('',$this->doc->makeShortcutIcon('id',implode(',',array_keys($this->MOD_MENU)),$this->$GLOBALS['TBE_MODULES']['_configuration']['tx_wfqbe_query_query']['name']));
 						}
 					}

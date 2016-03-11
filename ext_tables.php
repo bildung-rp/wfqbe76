@@ -111,6 +111,10 @@ if (TYPO3_MODE == 'BE')    {
 			'll_ref' => 'LLL:EXT:wfqbe/mod2/locallang_mod.xml',
 		),
 	);
+	$search = array(
+		'routeTarget' => 'tx_wfqbe_query_searchwiz::main',
+		'name' => 'xMOD_tx_wfqbe_query_searchwiz',
+	);
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
 		'user',

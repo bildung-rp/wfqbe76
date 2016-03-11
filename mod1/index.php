@@ -31,7 +31,7 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe'
 
 $LANG->includeLLFile('EXT:wfqbe/mod1/locallang.xml');
 require_once (PATH_t3lib . 'class.t3lib_scbase.php');
-$BE_USER->modAccess($GLOBALS['TBE_MODULES']['_configuration']['txwfqbeM1'], 1); // This checks permissions and exits if the users has no permission for entry.
+$GLOBALS['BE_USER']->modAccess($GLOBALS['TBE_MODULES']['_configuration']['txwfqbeM1'], 1); // This checks permissions and exits if the users has no permission for entry.
 // DEFAULT initialization of a module [END]
 
 /**
@@ -50,7 +50,7 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 	 * @return    void
 	 */
 	function init() {
-		global $BE_USER, $LANG, $BACK_PATH, $TCA_DESCR, $TCA, $CLIENT, $TYPO3_CONF_VARS;
+		global $LANG, $BACK_PATH, $TCA_DESCR, $TCA, $CLIENT, $TYPO3_CONF_VARS;
 
 		parent :: init();
 
@@ -84,7 +84,7 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 	 * @return    [type]        ...
 	 */
 	function main() {
-		global $BE_USER, $LANG, $BACK_PATH, $TCA_DESCR, $TCA, $CLIENT, $TYPO3_CONF_VARS;
+		global $LANG, $BACK_PATH, $TCA_DESCR, $TCA, $CLIENT, $TYPO3_CONF_VARS;
 
 		// Access check!
 		// The page will show only if there is a valid page and if this page may be viewed by the user
@@ -164,7 +164,7 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 			$this->moduleContent();
 
 			// ShortCut
-			if ($BE_USER->mayMakeShortcut()) {
+			if ($GLOBALS['BE_USER']->mayMakeShortcut()) {
 				$this->content .= $this->doc->spacer(20);
 			}
 
@@ -227,17 +227,17 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 	
 	
 	function selectCredentials()	{
-		global $LANG, $BE_USER;
+		global $LANG;
 		
-		if ($BE_USER->userTS['module.']['user_txwfqbeM1.']['allowedCredentials']!='')
-			$where = ' AND uid IN ('.$BE_USER->userTS['module.']['user_txwfqbeM1.']['allowedCredentials'].')';
+		if ($GLOBALS['BE_USER']->userTS['module.']['user_txwfqbeM1.']['allowedCredentials']!='')
+			$where = ' AND uid IN ('.$GLOBALS['BE_USER']->userTS['module.']['user_txwfqbeM1.']['allowedCredentials'].')';
 		else
 			$where = '';
 		
 		$content = '<br /><label for="credentials">'.$LANG->getLL('label_credentials').'</label>: <select onchange="submit();" id="credentials" name="credentials">';
 		$content .= '<option value=""></option>';
 		
-		if ($BE_USER->userTS['module.']['user_txwfqbeM1.']['allowedCredentials']=='' || ($BE_USER->userTS['module.']['user_txwfqbeM1.']['allowedCredentials']!='' && \TYPO3\CMS\Core\Utility\GeneralUtility::inList($BE_USER->userTS['module.']['user_txwfqbeM1.']['allowedCredentials'], '0')))	{
+		if ($GLOBALS['BE_USER']->userTS['module.']['user_txwfqbeM1.']['allowedCredentials']=='' || ($GLOBALS['BE_USER']->userTS['module.']['user_txwfqbeM1.']['allowedCredentials']!='' && \TYPO3\CMS\Core\Utility\GeneralUtility::inList($GLOBALS['BE_USER']->userTS['module.']['user_txwfqbeM1.']['allowedCredentials'], '0')))	{
 			if (\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('credentials')==0 && \TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger(\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('credentials')))
 				$selected = ' selected="selected"';
 			else
@@ -262,7 +262,7 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 	
 	
 	function selectTable($credentials)	{
-		global $LANG, $BE_USER;
+		global $LANG;
 		$content = '<label for="table">'.$LANG->getLL('label_table').'<label>: <select onchange="submit();" id="table" name="table">';
 		
 		if (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($credentials))	{
@@ -274,7 +274,7 @@ class tx_wfqbe_module1 extends t3lib_SCbase {
 				$content .= '<option value=""></option>';
 				if (is_array($tables) && count($tables)>0)	{
 					foreach ($tables as $table)	{
-						if ($BE_USER->userTS['module.']['user_txwfqbeM1.']['allowedTables.'][$credentials]!='' && !\TYPO3\CMS\Core\Utility\GeneralUtility::inList($BE_USER->userTS['module.']['user_txwfqbeM1.']['allowedTables.'][$credentials], $table))
+						if ($GLOBALS['BE_USER']->userTS['module.']['user_txwfqbeM1.']['allowedTables.'][$credentials]!='' && !\TYPO3\CMS\Core\Utility\GeneralUtility::inList($GLOBALS['BE_USER']->userTS['module.']['user_txwfqbeM1.']['allowedTables.'][$credentials], $table))
 							continue;
 						
 						if (\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('table')==$table)
