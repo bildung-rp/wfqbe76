@@ -121,6 +121,7 @@ class tx_wfqbe_insert {
 		// init RTE
 		if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rtehtmlarea'))	{
 			$this->postvars = $this->pibase->piVars;
+			require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('rtehtmlarea').'pi2/class.tx_rtehtmlarea_pi2.php');
 			if (!$this->RTEObj) $this->RTEObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_rtehtmlarea_pi2');
 			$this->thePidValue = $GLOBALS['TSFE']->id;
 		}
