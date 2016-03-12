@@ -93,8 +93,8 @@ if (TYPO3_MODE == 'BE')    {
 		'routeTarget' => 'tx_wfqbe_module1::main',
 		'name' => 'user_txwfqbeM1',
 		'access' => 'user,group',
-		'labels' => array(
-			'tabs_images' => array(
+		'labels' = array(
+			'tabs_images' = array(
 				'tab' => 'EXT:wfqbe/mod1/moduleicon.gif',
 			),
 			'll_ref' => 'LLL:EXT:wfqbe/mod1/locallang_mod.xml',
@@ -104,8 +104,8 @@ if (TYPO3_MODE == 'BE')    {
 		'routeTarget' => 'tx_wfqbe_module2::main',
 		'name' => 'user_txwfqbeM2',
 		'access' => 'user,group',
-		'labels' => array(
-			'tabs_images' => array(
+		'labels' = array(
+			'tabs_images' = array(
 				'tab' => 'EXT:wfqbe/mod2/moduleicon.gif',
 			),
 			'll_ref' => 'LLL:EXT:wfqbe/mod2/locallang_mod.xml',
