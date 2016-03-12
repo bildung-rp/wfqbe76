@@ -58,8 +58,6 @@
 
 
 
-require_once (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe').'pi1/class.tx_wfqbe_pi1.php');
-
 
 
 class tx_wfqbe_belib	{
@@ -544,8 +542,6 @@ class tx_wfqbe_belib	{
 
 		if ($typoscript!='')	{
 
-			require_once(PATH_t3lib.'class.t3lib_tsparser.php');
-
 			$tsparser = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('t3lib_tsparser');
 
 			// Copy conf into existing setup
@@ -584,15 +580,11 @@ class tx_wfqbe_belib	{
 
 	if (intval(str_replace('.','',TYPO3_branch))<62)
 
-	    	require_once(PATH_t3lib.'class.t3lib_page.php');
-
         
 
         if (!is_object($GLOBALS['TT']))	{
 
 		if (intval(str_replace('.','',TYPO3_branch))<62)
-		       	require_once(PATH_t3lib . 'class.t3lib_timetrack.php');
-
         	$GLOBALS['TT'] = new t3lib_timeTrack();
 
         }

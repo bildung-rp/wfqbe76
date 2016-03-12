@@ -28,23 +28,7 @@
  */
 
 
-
-	// DEFAULT initialization of a module [BEGIN]
-unset($MCONF);
-require ('conf.php');
-require ($BACK_PATH.'init.php');
-if (intval(str_replace('.','',TYPO3_branch))<62) {
-	require ($BACK_PATH.'template.php');
-	require_once (PATH_t3lib.'class.t3lib_scbase.php');
-}
-//$LANG->includeLLFile('EXT:wfqbe/tx_wfqbe_query_insert/locallang.xml');
-//includo il file form_generator.php. La prima parte dell'argomento mi d� il path della estensione
-require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe')."tx_wfqbe_query_insert/class.tx_wfqbe_insertform_generator.php");
-require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe')."lib/class.tx_wfqbe_connect.php");
-	// ....(But no access check here...)
-	// DEFAULT initialization of a module [END]
-
-			class tx_wfqbe_tx_wfqbe_query_insertwiz extends t3lib_SCbase {
+class tx_wfqbe_tx_wfqbe_query_insertwiz extends t3lib_SCbase {
 			var $P;
 			var $qbe;
 			/**
@@ -273,15 +257,6 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe'
 	
 										$content.='<hr>';
 										
-										// If save command found, include tcemain. t3lib_tcemain.php � una classe per la manipolazione del database.
-										// Se i parametri savedoc_x e saveandclose_x sono passati tramite post allora includi la classe sopra specificata 
-										// che servir� per fare dei salvataggi.
-										if ($_POST['savedok_x'] || $_POST['saveandclosedok_x'])	{
-											if (intval(str_replace('.','',TYPO3_branch))<62)
-												require_once (PATH_t3lib.'class.t3lib_tcemain.php');
-										}
-							
-							
 										// Se i pulsanti di salvataggio e salvataggio/uscita son premuti allora
 										if ($_POST['savedok_x'] || $_POST['saveandclosedok_x'])	{
 	

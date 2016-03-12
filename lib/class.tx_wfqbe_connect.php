@@ -28,7 +28,6 @@
  * @author	Mauro Lorenzutti <mauro.lorenzutti@webformat.com>
  */
 
-require_once (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility :: extPath('adodb') . 'adodb/adodb.inc.php');
 
 class tx_wfqbe_connect {
 	var $extKey = 'wfqbe'; // The extension key.

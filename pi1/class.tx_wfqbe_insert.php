@@ -29,7 +29,6 @@
  * 
  */
 
-require_once('class.rs_datepicker.php');
 
 class tx_wfqbe_insert {
 	
@@ -121,7 +120,6 @@ class tx_wfqbe_insert {
 		
 		// init RTE
 		if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rtehtmlarea'))	{
-			require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('rtehtmlarea').'pi2/class.tx_rtehtmlarea_pi2.php');
 			$this->postvars = $this->pibase->piVars;
 			if (!$this->RTEObj) $this->RTEObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_rtehtmlarea_pi2');
 			$this->thePidValue = $GLOBALS['TSFE']->id;
@@ -228,7 +226,6 @@ class tx_wfqbe_insert {
 			
 			// Sends an email to site administrator
 			if ($results['inserted']==1 && $this->conf['email.']['send_email']==1 && $this->conf['email.']['notify_email']!='')	{
-				require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe').'lib/class.tx_wfqbe_mail.php');
 				$mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_wfqbe_mail');
 				$mail->init($this->cObj, $this->conf, $this->pibase->piVars, $this);
 				$sent = $mail->sendEmail($this->conf['email.']['notify_email'], $this->conf['email.']['notify_subject'], $results, 'ADMIN');
@@ -236,7 +233,6 @@ class tx_wfqbe_insert {
 			
 			// Sends a confirmation email to user
 			if ($results['inserted']==1 && $this->conf['email.']['send_email_user']==1 && $this->conf['email.']['field_email_user']!='' && \TYPO3\CMS\Core\Utility\GeneralUtility::validEmail($this->pibase->piVars[$this->conf['email.']['field_email_user']]))	{
-				require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe').'lib/class.tx_wfqbe_mail.php');
 				$mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_wfqbe_mail');
 				$mail->init($this->cObj, $this->conf, $this->pibase->piVars, $this);
 				$sent = $mail->sendEmail($this->pibase->piVars[$this->conf['email.']['field_email_user']], $this->conf['email.']['notify_subject_user'], $results, 'USER');
@@ -251,7 +247,6 @@ class tx_wfqbe_insert {
 			if ($this->conf['ff_data']['clear_cache']!='')	{
 				$clear_cache = explode(',', $this->conf['ff_data']['clear_cache']);
 				if (is_array($clear_cache) && count($clear_cache)>0)	{
-					require_once(PATH_t3lib.'class.t3lib_tcemain.php');
 					$tce = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('t3lib_TCEmain');
 					foreach ($clear_cache as $pUid)	{
 						if (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($pUid))
@@ -2036,7 +2031,6 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 	 * @param unknown_type $editing_record
 	 */
 	function checkIDRestricting($h, $idRestrictQuery, $editing_record)	{
-		require_once \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe').'/pi1/class.tx_wfqbe_results.php';
 		$API = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_wfqbe_results');
 		$tsMarkers = $API->getTSMarkers($idRestrictQuery);
 		if (is_array($tsMarkers))	{

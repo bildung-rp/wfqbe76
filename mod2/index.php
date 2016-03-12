@@ -24,19 +24,10 @@
 
 
     // DEFAULT initialization of a module [BEGIN]
-unset($MCONF);
-require_once('conf.php');
-require_once($BACK_PATH.'init.php');
-//require_once($BACK_PATH.'template.php');
 
 $LANG->includeLLFile('EXT:wfqbe/mod2/locallang.xml');
-//require_once(PATH_t3lib.'class.t3lib_scbase.php');
-require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('backend') . 'Classes/Module/BaseScriptClass.php');
 $GLOBALS['BE_USER']->modAccess($GLOBALS['TBE_MODULES']['_configuration']['txwfqbeM2'],1);    // This checks permissions and exits if the users has no permission for entry.
     // DEFAULT initialization of a module [END]
-
-
-require_once (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe').'mod2/class.tx_wfqbe_belib.php');
 
 
 /**
@@ -58,11 +49,6 @@ class  tx_wfqbe_module2 extends t3lib_SCbase {
 
                     parent::init();
 
-                    /*
-                    if (\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('clear_all_cache'))    {
-                        $this->include_once[] = PATH_t3lib.'class.t3lib_tcemain.php';
-                    }
-                    */
                 }
 
                 /**

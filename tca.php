@@ -1,8 +1,6 @@
 <?php
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
-require_once \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('wfqbe').'class.tx_wfqbe_tca_credentials_connection_localconf_preprocessing.php';
-
 $TCA["tx_wfqbe_credentials"] = Array (
 	"ctrl" => $TCA["tx_wfqbe_credentials"]["ctrl"],
 	"interface" => Array (

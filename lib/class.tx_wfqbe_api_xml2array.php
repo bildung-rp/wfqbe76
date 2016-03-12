@@ -28,8 +28,6 @@
  */
 
 
-require_once('class.tx_wfqbe_api_xml2data_structure.php');
-
 class tx_wfqbe_api_xml2array {
 	var $extKey = 'tx_wfqbe_api';	// The extension key.
 	
