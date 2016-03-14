@@ -35,7 +35,7 @@ class tx_wfqbe_search {
 	var $conf;
 	var $cObj;
 	var $pibase;
-	var $prefixId = 'tx_wfqbe_pi1';
+	var $prefixId = 'Tx_Wfqbe_Pi1';
 	var $row = array();
 
 	function main($conf, $cObj, $pibase)	{
@@ -103,12 +103,12 @@ class tx_wfqbe_search {
 		$blockTemplate = $this->cObj->getSubpart($content, '###SEARCH_BLOCK###');
 		$blockList = '';
 		if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('xajax') && $this->conf['enableXAJAX']==1 && $this->conf['ff_data']['resultsPage']==$GLOBALS['TSFE']->id)
-			$blockList .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_results_query]" value="'.$row['searchinquery'].'" />';
+			$blockList .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_results_query]" value="'.$row['searchinquery'].'" />';
 		
 		if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('xajax') && $this->conf['enableXAJAX']==1)	{
-			$blockList .= '<input type="hidden" id="wfqbe_destination_id" name="tx_wfqbe_pi1[wfqbe_destination_id]" value="" />';
-			$blockList .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_this_query]" value="'.$row['uid'].'" />';
-			$blockList .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_results_query]" value="'.$row['searchinquery'].'" />';
+			$blockList .= '<input type="hidden" id="wfqbe_destination_id" name="Tx_Wfqbe_Pi1[wfqbe_destination_id]" value="" />';
+			$blockList .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_this_query]" value="'.$row['uid'].'" />';
+			$blockList .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_results_query]" value="'.$row['searchinquery'].'" />';
 		}
 		
 		$i=0;
@@ -193,7 +193,7 @@ class tx_wfqbe_search {
 	
 	
 	function showInput($value, $name, $id, &$blockTemplate)	{
-		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 		
 		if ($value['form']['onchange']!="")	{
 			if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('xajax') && $this->conf['enableXAJAX']==1)	{
@@ -226,14 +226,14 @@ class tx_wfqbe_search {
 		if ($value['form']['custom_id']!="")
 			$id = $value['form']['custom_id'];
 			
-		return '<input'.$additionalParams.' id="'.$id.'" type="'.$type.'" name="tx_wfqbe_pi1['.$name.']" value="'.$wfqbe[$name].'"'.$update.' />';
+		return '<input'.$additionalParams.' id="'.$id.'" type="'.$type.'" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$wfqbe[$name].'"'.$update.' />';
 	}
 	
 	
 	
 	
 	function showRadio($value, $name, $h, $id)	{
-		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 		$listaRadio = '';
 		
 		if ($value['form']['onchange']!="")	{
@@ -264,9 +264,9 @@ class tx_wfqbe_search {
 				// EW
 				if ($value['form'][$i]['value']==$wfqbe[$name] || $value['form'][$i]['value']==$this->pibase->piVars[$name])
 				// if ($value['form'][$i]['value']==$wfqbe[$name] || $value['form'][$i]['value']==$this->pibase->piVars[$name] || $i==0)
-                   $listaRadio .= '<input'.$idi.$update.' checked="checked" type="radio" name="tx_wfqbe_pi1['.$name.']" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
+                   $listaRadio .= '<input'.$idi.$update.' checked="checked" type="radio" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
 				else
-					$listaRadio .= '<input'.$idi.$update.' type="radio" name="tx_wfqbe_pi1['.$name.']" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
+					$listaRadio .= '<input'.$idi.$update.' type="radio" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
 				if ($i<$value['form']['numValues']-1)
 					$listaRadio .= '<br />';
 			}
@@ -284,18 +284,18 @@ class tx_wfqbe_search {
 				if ($array[1]=="")
 					$emptyOption = true;
 				if ($array[1]==$wfqbe[$name] || $array[1]==$this->pibase->piVars[$name])
-					$listaRadio .= '<input'.$update.' checked="checked" type="radio" name="tx_wfqbe_pi1['.$name.']" value="'.$array[1].'" /> '.$array[0].'<br />';
+					$listaRadio .= '<input'.$update.' checked="checked" type="radio" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$array[1].'" /> '.$array[0].'<br />';
 				else
-					$listaRadio .= '<input'.$update.' type="radio" name="tx_wfqbe_pi1['.$name.']" value="'.$array[1].'" /> '.$array[0].'<br />';
+					$listaRadio .= '<input'.$update.' type="radio" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$array[1].'" /> '.$array[0].'<br />';
 			}
 			if (!$emptyOption)	{
 				if ($value['form']['custom_id']!="")
 					$id = $value['form']['custom_id'];
 				
 				if ($wfqbe[$name]=="")
-					$listaRadio = '<input id="'.$id.'"'.$update.' checked="checked" type="radio" name="tx_wfqbe_pi1['.$name.']" value="" /> <br />'.$listaRadio;
+					$listaRadio = '<input id="'.$id.'"'.$update.' checked="checked" type="radio" name="Tx_Wfqbe_Pi1['.$name.']" value="" /> <br />'.$listaRadio;
 				else
-					$listaRadio = '<input id="'.$id.'"'.$update.' type="radio" name="tx_wfqbe_pi1['.$name.']" value="" /> <br />'.$listaRadio;
+					$listaRadio = '<input id="'.$id.'"'.$update.' type="radio" name="Tx_Wfqbe_Pi1['.$name.']" value="" /> <br />'.$listaRadio;
 			}
 			if ($listaRadio!='')
 				$listaRadio = substr($listaRadio, 0, -6);
@@ -308,7 +308,7 @@ class tx_wfqbe_search {
 	// added by MFG: function showCheck to show search with option "check"
 	
 	function showCheck($value, $name, $h, $id)	{
-		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 		$listCheck = '';
 		
 		if ($value['form']['onchange']!="")	{
@@ -337,9 +337,9 @@ class tx_wfqbe_search {
 				}	else
 					$idi = '';
 				if ((is_array($wfqbe[$name]) && in_array($value['form'][$i]['value'], $wfqbe[$name])) || $value['form'][$i]['value']==$this->pibase->piVars[$name])
-					$listCheck .= '<input'.$idi.$update.' checked="checked" type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
+					$listCheck .= '<input'.$idi.$update.' checked="checked" type="checkbox" name="Tx_Wfqbe_Pi1['.$name.'][]" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
 				else
-					$listCheck .= '<input'.$idi.$update.' type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
+					$listCheck .= '<input'.$idi.$update.' type="checkbox" name="Tx_Wfqbe_Pi1['.$name.'][]" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
 				if ($i<$value['form']['numValues']-1)
 					$listCheck .= '<br />';
 			}
@@ -357,9 +357,9 @@ class tx_wfqbe_search {
 				//if ($array[1]=="")
 					//$emptyOption = true;
 				if ((is_array($wfqbe[$name]) && in_array($array[1], $wfqbe[$name])) || $array[1]==$this->pibase->piVars[$name])
-					$listCheck .= '<input'.$update.' checked="checked" type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="'.$array[1].'" /> '.$array[0].'<br />';
+					$listCheck .= '<input'.$update.' checked="checked" type="checkbox" name="Tx_Wfqbe_Pi1['.$name.'][]" value="'.$array[1].'" /> '.$array[0].'<br />';
 				else
-					$listCheck .= '<input'.$update.' type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="'.$array[1].'" /> '.$array[0].'<br />';
+					$listCheck .= '<input'.$update.' type="checkbox" name="Tx_Wfqbe_Pi1['.$name.'][]" value="'.$array[1].'" /> '.$array[0].'<br />';
 			}
 			if ($listCheck!='')
 				$listCheck = substr($listCheck, 0, -6);
@@ -372,7 +372,7 @@ class tx_wfqbe_search {
 	
 	
 	function showSelect($value, $name, $h, $id)	{
-		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 		
 		if ($value['form']['onchange']!="")	{
 			if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('xajax') && $this->conf['enableXAJAX']==1)	{
@@ -394,9 +394,9 @@ class tx_wfqbe_search {
 
 		if ($value['form']['multiple']=='si')	{
 			$size = $value['form']['size']>0 ? $value['form']['size'] : 5;
-			$listaSelect = '<select id="'.$id.'" name="tx_wfqbe_pi1['.$name.'][]" size="'.$size.'" multiple="multiple"'.$update.'>';
+			$listaSelect = '<select id="'.$id.'" name="Tx_Wfqbe_Pi1['.$name.'][]" size="'.$size.'" multiple="multiple"'.$update.'>';
 		}	else 
-				$listaSelect = '<select id="'.$id.'" name="tx_wfqbe_pi1['.$name.'][]"'.$update.'>';
+				$listaSelect = '<select id="'.$id.'" name="Tx_Wfqbe_Pi1['.$name.'][]"'.$update.'>';
 		
 		if ($value['form']['source']=='static')	{
 			for ($i=0; $i<$value['form']['numValues']; $i++)	{
@@ -467,7 +467,7 @@ class tx_wfqbe_search {
 	
 	
 	function showCalendar($value, $name, $id, &$blockTemplate)	{
-		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 		if ($value['form']['custom_id']!="")
 			$id = $value['form']['custom_id'];
 		
@@ -492,7 +492,7 @@ class tx_wfqbe_search {
 			else
 				$JSCalendar->setNLP(false);
 			
-			$field = $JSCalendar->render($wfqbe[$name], 'tx_wfqbe_pi1['.$name.']');
+			$field = $JSCalendar->render($wfqbe[$name], 'Tx_Wfqbe_Pi1['.$name.']');
 
 			// get initialisation code of the calendar
 			if (($jsCode = $JSCalendar->getMainJS()) != '') {
@@ -528,7 +528,7 @@ class tx_wfqbe_search {
 							</script>';
 				$GLOBALS['TSFE']->additionalHeaderData['wfqbe_datepicker'] = $jsCode;
 				
-				return '<input id="'.$id.'" type="text" name="tx_wfqbe_pi1['.$name.']" value="'.$this->pibase->piVars[$name].'" />';
+				return '<input id="'.$id.'" type="text" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$this->pibase->piVars[$name].'" />';
 				
 			}	elseif ($this->pibase->beMode)	{
 				// Uses extbase calendar
@@ -545,7 +545,7 @@ class tx_wfqbe_search {
 						};
 				</script>';
 				
-				return $JScode.'<input name="tx_wfqbe_pi1['.$name.']" type="text" id="tceforms-datetimefield-'.$id.'" value="' . $this->pibase->piVars[$name] . '" />' .
+				return $JScode.'<input name="Tx_Wfqbe_Pi1['.$name.']" type="text" id="tceforms-datetimefield-'.$id.'" value="' . $this->pibase->piVars[$name] . '" />' .
 					   	t3lib_iconWorks::getSpriteIcon(
 							'actions-edit-pick-date',
 							array(

@@ -45,9 +45,9 @@ class tx_wfqbe_utils{
 			if ($key.""!=$exclude)	{
 				if (is_array($value))	{
 					foreach ($value as $k => $v)
-						$html .= '<input type="hidden" name="tx_wfqbe_pi1'.$sub.'['.$key.']['.$k.']" value="'.$v.'" />';
+						$html .= '<input type="hidden" name="Tx_Wfqbe_Pi1'.$sub.'['.$key.']['.$k.']" value="'.$v.'" />';
 				}	else	{
-					$html .= '<input type="hidden" name="tx_wfqbe_pi1'.$sub.'['.$key.']" value="'.$value.'" />';
+					$html .= '<input type="hidden" name="Tx_Wfqbe_Pi1'.$sub.'['.$key.']" value="'.$value.'" />';
 				}
 			}
 		}

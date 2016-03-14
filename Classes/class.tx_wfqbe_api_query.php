@@ -59,7 +59,7 @@ class tx_wfqbe_api_query{
 		if (is_array($piVars))
 			$this->piVars = $piVars;
 		else
-			$this->piVars = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+			$this->piVars = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 		
 		// Finding the query record into the database
 		$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'tx_wfqbe_query', 'uid='.$query);
@@ -142,8 +142,8 @@ class tx_wfqbe_api_query{
 		$template->runThroughTemplates($rootline, 0);
 		$template->generateConfig();
 		
-		if (isset($template->setup['plugin.']['tx_wfqbe_pi1.'])) {
-			$result = $template->setup['plugin.']['tx_wfqbe_pi1.'];
+		if (isset($template->setup['plugin.']['Tx_Wfqbe_Pi1.'])) {
+			$result = $template->setup['plugin.']['Tx_Wfqbe_Pi1.'];
 		} else {
 			$result = array();
 		}

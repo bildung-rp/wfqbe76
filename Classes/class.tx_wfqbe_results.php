@@ -106,7 +106,7 @@ class tx_wfqbe_results {
 			if ($this->conf['ff_data']['csvDownload']==1)	{
 				$csvLink = $this->pibase->pi_linkTP_keepPIvars_url();
 				$csvLink .= (strpos($csvLink, '?')>0 ? '' : '?');
-				$mA["###CONF_CSV###"] = htmlentities($csvLink.'&type=181&tx_wfqbe_pi1[wfqbe_results_query]='.$csv_query);
+				$mA["###CONF_CSV###"] = htmlentities($csvLink.'&type=181&Tx_Wfqbe_Pi1[wfqbe_results_query]='.$csv_query);
 				$mA['###LABEL_CSV###'] = $this->pibase->pi_getLL('csv_link', 'Export in CSV');
 			}
 			
@@ -508,7 +508,7 @@ class tx_wfqbe_results {
 				$orderLink['addQueryString'] = 1;
 				$orderLink['addQueryString.']['method'] = 'POST,GET';
 				$orderLink['addQueryString.']['exclude'] = 'id';
-				$orderLink['additionalParams'] = '&tx_wfqbe_pi1[orderby]['.$row['uid'].'][mode]='.$mode.'&tx_wfqbe_pi1[orderby]['.$row['uid'].'][field]='.$field->name;
+				$orderLink['additionalParams'] = '&Tx_Wfqbe_Pi1[orderby]['.$row['uid'].'][mode]='.$mode.'&Tx_Wfqbe_Pi1[orderby]['.$row['uid'].'][field]='.$field->name;
 				if ($this->pibase->beMode==1)	{
 					$backend = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_backend');
 					$orderLink['additionalParams'] .= '&tx_wfqbe_backend[uid]='.$backend['uid'].'&tx_wfqbe_backend[mode]='.$backend['mode'];
@@ -704,7 +704,7 @@ class tx_wfqbe_results {
 					$orderLink['addQueryString'] = 1;
 					$orderLink['addQueryString.']['method'] = 'POST,GET';
 					$orderLink['addQueryString.']['exclude'] = 'id';
-					$orderLink['additionalParams'] = '&tx_wfqbe_pi1[orderby]['.$row['uid'].'][mode]='.$mode.'&tx_wfqbe_pi1[orderby]['.$row['uid'].'][field]='.$col;
+					$orderLink['additionalParams'] = '&Tx_Wfqbe_Pi1[orderby]['.$row['uid'].'][mode]='.$mode.'&Tx_Wfqbe_Pi1[orderby]['.$row['uid'].'][field]='.$col;
 					if ($this->pibase->beMode==1)	{
 						$backend = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_backend');
 						$orderLink['additionalParams'] .= '&tx_wfqbe_backend[uid]='.$backend['uid'].'&tx_wfqbe_backend[mode]='.$backend['mode'];

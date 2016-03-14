@@ -35,7 +35,7 @@ class tx_wfqbe_insert {
 	var $conf;
 	var $cObj;
 	var $pibase;
-	var $prefixId = 'tx_wfqbe_pi1';
+	var $prefixId = 'Tx_Wfqbe_Pi1';
 	var $blocks;
 	var $mode = 'insert';	// insert or edit
 	var $row = array();		// the query row
@@ -148,7 +148,7 @@ class tx_wfqbe_insert {
 		}
 		$content ='';
 
-		if(is_array($_FILES['tx_wfqbe_pi1']['error']))	{
+		if(is_array($_FILES['Tx_Wfqbe_Pi1']['error']))	{
 			$content .= $this->uploadFiles($this->blocks);
 		}
 		
@@ -399,8 +399,8 @@ class tx_wfqbe_insert {
 		$this->row = $row;
 		
 		if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('xajax') && $this->conf['enableXAJAX']==1)	{
-			$blockList .= '<input type="hidden" value="'.$row['uid'].'" name="tx_wfqbe_pi1[wfqbe_this_query]" />';
-			$blockList .= '<input type="hidden" value="" name="tx_wfqbe_pi1[wfqbe_destination_id]" id="wfqbe_destination_id" />';
+			$blockList .= '<input type="hidden" value="'.$row['uid'].'" name="Tx_Wfqbe_Pi1[wfqbe_this_query]" />';
+			$blockList .= '<input type="hidden" value="" name="Tx_Wfqbe_Pi1[wfqbe_destination_id]" id="wfqbe_destination_id" />';
 		}
 		
 		$mA['###INSERT_HIDDEN_FIELDS###'] = '';
@@ -410,9 +410,9 @@ class tx_wfqbe_insert {
 				$mA['###INSERT_HIDDEN_FIELDS###'] = $API->getHiddenFields($this->pibase->piVars, '', 'submit_modify');
 			else
 				$mA['###INSERT_HIDDEN_FIELDS###'] = $API->getHiddenFields($this->pibase->piVars, 'orig', 'submit_modify');
-			$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_add_new]" value="'.$this->pibase->piVars['wfqbe_add_new'].'" />';
-			$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_edit_subrecord]" value="'.$this->pibase->piVars['wfqbe_edit_subrecord'].'" />';
-			$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_delete_subrecord]" value="'.$this->pibase->piVars['wfqbe_delete_subrecord'].'" />';
+			$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_add_new]" value="'.$this->pibase->piVars['wfqbe_add_new'].'" />';
+			$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_edit_subrecord]" value="'.$this->pibase->piVars['wfqbe_edit_subrecord'].'" />';
+			$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_delete_subrecord]" value="'.$this->pibase->piVars['wfqbe_delete_subrecord'].'" />';
 			$wfqbe_add_new = $this->pibase->piVars['wfqbe_add_new'];
 			$this->old_piVars = $this->pibase->piVars;
 			if ($this->pibase->piVars['submit_modify']=='')	{
@@ -437,37 +437,37 @@ class tx_wfqbe_insert {
 					return "";
 				else	{
 					if ($this->pibase->piVars['wfqbe_id_field']!="" && is_int(intval($this->pibase->piVars['wfqbe_id_field'])))	{
-						$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_id_field]" value="'.$this->pibase->piVars['wfqbe_id_field'].'" />';
+						$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_id_field]" value="'.$this->pibase->piVars['wfqbe_id_field'].'" />';
 						$editing_record = false;
 					}	else	{
-						$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_id_field]" value="'.$this->pibase->piVars[$this->blocks['ID_field']].'" />';
+						$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_id_field]" value="'.$this->pibase->piVars[$this->blocks['ID_field']].'" />';
 						$editing_record = $this->initValues($h);  // Now I retrieve the values that I want to edit from the table
 						unset($this->pibase->piVars[$this->blocks['ID_field']]);
 					}
-					$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_editing_mode]" value="1" />';
+					$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_editing_mode]" value="1" />';
 				}
 			}	elseif ($this->mode == 'delete')	{
 				if ($this->blocks['ID_field']=='')
 					return "";
 				else	{
 					if ($this->pibase->piVars['wfqbe_id_field']!="" && is_int(intval($this->pibase->piVars['wfqbe_id_field'])))	{
-						$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_id_field]" value="'.$this->pibase->piVars['wfqbe_id_field'].'" />';
+						$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_id_field]" value="'.$this->pibase->piVars['wfqbe_id_field'].'" />';
 						$editing_record = false;
 					}	else	{
-						$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_id_field]" value="'.$this->pibase->piVars[$this->blocks['ID_field']].'" />';
+						$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_id_field]" value="'.$this->pibase->piVars[$this->blocks['ID_field']].'" />';
 						$editing_record = $this->initValues($h);  // Now I retrieve the values that I want to edit from the table
 						unset($this->pibase->piVars[$this->blocks['ID_field']]);
 					}
-					$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_deleting_mode]" value="1" />';
+					$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_deleting_mode]" value="1" />';
 				}
 			}
 		}	else	{
 			if ($this->mode=='edit')	{
-				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_id_field]" value="'.$this->pibase->piVars['wfqbe_id_field'].'" />';
-				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_editing_mode]" value="1" />';
+				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_id_field]" value="'.$this->pibase->piVars['wfqbe_id_field'].'" />';
+				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_editing_mode]" value="1" />';
 			}	elseif ($this->mode=='delete')	{
-				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_id_field]" value="'.$this->pibase->piVars['wfqbe_id_field'].'" />';
-				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_deleting_mode]" value="1" />';
+				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_id_field]" value="'.$this->pibase->piVars['wfqbe_id_field'].'" />';
+				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_deleting_mode]" value="1" />';
 			}
 		}
 		
@@ -688,8 +688,8 @@ class tx_wfqbe_insert {
 			else
 				$path = $this->conf['insert.']['add_new.']['icon'];
 $rA['###INSERT_ADD_NEW###'] = "<a href='#' onclick=\"javascript:submitActions(); document.getElementById('wfqbe_add_new').value='".$key."'; document.getElementById('".$this->conf['ff_data']['div_id']."_form').submit(); return false;\"><img src='".\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_SITE_URL').$path."' /></a>";
-//$rA['###INSERT_ADD_NEW###'] = "<button type='submit' name='tx_wfqbe_pi1[wfqbe_add_new]' value='".$key."'><img src='".\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_SITE_URL').$path."' /></button>";
-			//$rA['###INSERT_ADD_NEW###'] = "<input type='image' name='tx_wfqbe_pi1[wfqbe_add_new]' value='".$key."' src='".\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_SITE_URL').$path."' />";
+//$rA['###INSERT_ADD_NEW###'] = "<button type='submit' name='Tx_Wfqbe_Pi1[wfqbe_add_new]' value='".$key."'><img src='".\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_SITE_URL').$path."' /></button>";
+			//$rA['###INSERT_ADD_NEW###'] = "<input type='image' name='Tx_Wfqbe_Pi1[wfqbe_add_new]' value='".$key."' src='".\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_SITE_URL').$path."' />";
 		}	else	{
 			$rA['###INSERT_ADD_NEW###'] = '';
 		}
@@ -701,7 +701,7 @@ $rA['###INSERT_ADD_NEW###'] = "<a href='#' onclick=\"javascript:submitActions();
 			else
 				$path = $this->conf['insert.']['select_wizard.']['icon'];
 $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActions(); document.getElementById('wfqbe_select_wizard').value='".$key."'; document.getElementById('".$this->conf['ff_data']['div_id']."_form').submit(); return false;\"><img src='".\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_SITE_URL').$path."' /></a>";
-			//$rA['###INSERT_SELECT_WIZARD###'] = '<input id="'.$name.'" type="image" name="tx_wfqbe_pi1[wfqbe_select_wizard]" value="'.$key.'" src="'.\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_SITE_URL').$path.'" />';
+			//$rA['###INSERT_SELECT_WIZARD###'] = '<input id="'.$name.'" type="image" name="Tx_Wfqbe_Pi1[wfqbe_select_wizard]" value="'.$key.'" src="'.\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_SITE_URL').$path.'" />';
 		}	else	{
 			$rA['###INSERT_SELECT_WIZARD###'] = '';
 		}
@@ -734,14 +734,14 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 	
 	function showDisplay($value, $name, $id)	{
 		if ($this->pibase->piVars[$name]!='')
-			return $this->charToEntity($this->pibase->piVars[$name]).'<input id="'.$id.'" type="hidden" name="tx_wfqbe_pi1['.$name.']" value="'.htmlspecialchars($this->pibase->piVars[$name]).'" />';
+			return $this->charToEntity($this->pibase->piVars[$name]).'<input id="'.$id.'" type="hidden" name="Tx_Wfqbe_Pi1['.$name.']" value="'.htmlspecialchars($this->pibase->piVars[$name]).'" />';
 		
 		if ($value['form']['code']!='')
 			$displayValue = eval($value['form']['code']);
 		else
 			$displayValue = $value['form']['value'];
 		
-		return '<span class="value_'.$id.'">'.$displayValue.'</span><input id="'.$id.'" type="hidden" name="tx_wfqbe_pi1['.$name.']" value="'.htmlspecialchars($displayValue).'" />';
+		return '<span class="value_'.$id.'">'.$displayValue.'</span><input id="'.$id.'" type="hidden" name="Tx_Wfqbe_Pi1['.$name.']" value="'.htmlspecialchars($displayValue).'" />';
 	}
 	
 	
@@ -753,7 +753,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 			$attributes .= ' maxlength="'.$value['form']['maxlength'].'"';
 		$fieldValue = $this->pibase->piVars[$name]!='' ? $this->pibase->piVars[$name] :
 			($this->pibase->piVars[$value['field']]!='' ? $this->pibase->piVars[$value['field']] : '');
-		return '<input'.$attributes.' id="'.$id.'" type="text" name="tx_wfqbe_pi1['.$name.']" value="'.$this->charToEntity($fieldValue).'" />';
+		return '<input'.$attributes.' id="'.$id.'" type="text" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$this->charToEntity($fieldValue).'" />';
 	}
 	
 	
@@ -766,7 +766,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 			$attributes .= ' maxlength="10"';
 			$fieldValue = $this->pibase->piVars[$name]!='' ? $this->pibase->piVars[$name] :
 				($this->pibase->piVars[$value['field']]!='' ? $this->pibase->piVars[$value['field']] : '');
-		return '<input'.$attributes.' id="'.$id.'" type="text" name="tx_wfqbe_pi1['.$name.']" value="'.$this->charToEntity($fieldValue).'" />';
+		return '<input'.$attributes.' id="'.$id.'" type="text" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$this->charToEntity($fieldValue).'" />';
 	}
 	
 	
@@ -793,7 +793,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 				$fieldValue = $this->pibase->piVars[$name]!='' ? $this->pibase->piVars[$name] :
 					($this->pibase->piVars[$value['field']]!='' ? $this->pibase->piVars[$value['field']] : '');
 				
-				return '<input id="'.$id.'" type="text" name="tx_wfqbe_pi1['.$name.']" value="'.$this->charToEntity($fieldValue).'" />';
+				return '<input id="'.$id.'" type="text" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$this->charToEntity($fieldValue).'" />';
 				
 	}
 	
@@ -801,7 +801,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 	function showPassword($value, $name, $id)	{
 		$fieldValue = $this->pibase->piVars[$name]!='' ? $this->pibase->piVars[$name] :
 			($this->pibase->piVars[$value['field']]!='' ? $this->pibase->piVars[$value['field']] : '');
-		return '<input id="'.$id.'" type="password" name="tx_wfqbe_pi1['.$name.']" value="'.$fieldValue.'" />';
+		return '<input id="'.$id.'" type="password" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$fieldValue.'" />';
 	}
 	
 	
@@ -814,7 +814,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 		elseif ($value['form']['value_from_parameter']!='' && $this->old_piVars[$name]!='')
 			$hidden_value = $this->old_piVars[$value['form']['value_from_parameter']];
 		
-		return '<input id="'.$id.'" type="hidden" name="tx_wfqbe_pi1['.$name.']" value="'.$hidden_value.'" />';
+		return '<input id="'.$id.'" type="hidden" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$hidden_value.'" />';
 	}
 	
 	
@@ -873,7 +873,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 							$content .= $array[$subview['field']];
 					}
 				}
-				$content .= '<input id="'.$id.'" type="hidden" name="tx_wfqbe_pi1['.$name.'][]" value="'.$array[$value['form']['field_insert']].'" />';
+				$content .= '<input id="'.$id.'" type="hidden" name="Tx_Wfqbe_Pi1['.$name.'][]" value="'.$array[$value['form']['field_insert']].'" />';
 				$content .= '<br />';
 				$i++;
 			}
@@ -888,14 +888,14 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 						$content .= $array[$subview['field']];
 				}
 			}
-			$content.='<input id="'.$id.'" type="hidden" name="tx_wfqbe_pi1['.$name.']" value="'.$array[$value['form']['field_insert']].'" />';
+			$content.='<input id="'.$id.'" type="hidden" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$array[$value['form']['field_insert']].'" />';
 		}
 		return $content;
 	}
 	
 	
 	function showTextarea($value, $name, $id)	{
-		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 		if ($value['form']['rows']=="")
 			$value['form']['rows'] = 5;
 		if ($value['form']['cols']=="")
@@ -903,7 +903,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 		
 		$fieldValue = $this->pibase->piVars[$name]!='' ? $this->pibase->piVars[$name] :
 			($this->pibase->piVars[$value['field']]!='' ? $this->pibase->piVars[$value['field']] : '');
-		$content = "<textarea id='".$id."' name='tx_wfqbe_pi1[".$name."]' rows='".$value['form']['rows']."' cols='".$value['form']['cols']."'>".$fieldValue."</textarea>";
+		$content = "<textarea id='".$id."' name='Tx_Wfqbe_Pi1[".$name."]' rows='".$value['form']['rows']."' cols='".$value['form']['cols']."'>".$fieldValue."</textarea>";
 		if ($value['form']['rte']==1 && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rtehtmlarea'))	{
 			if ($this->RTEObj->isAvailable()) {
 				if ($this->pibase->beMode)	{
@@ -931,12 +931,12 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 				}
 				
 				$this->RTEcounter++;
-				$this->table = 'tx_wfqbe_pi1';
+				$this->table = 'Tx_Wfqbe_Pi1';
 				$this->field = $name;
 				$this->formName = $this->conf['ff_data']['div_id'].'_form';
-				$this->PA['itemFormElName'] = 'tx_wfqbe_pi1['.$name.']';
+				$this->PA['itemFormElName'] = 'Tx_Wfqbe_Pi1['.$name.']';
 				$this->PA['itemFormElValue'] = $fieldValue;
-				$RTEItem = $this->RTEObj->drawRTE($this, 'tx_wfqbe_pi1', $name, $row = array(), $this->PA, $this->specConf, $this->thisConfig, $this->RTEtypeVal, '', $this->thePidValue);
+				$RTEItem = $this->RTEObj->drawRTE($this, 'Tx_Wfqbe_Pi1', $name, $row = array(), $this->PA, $this->specConf, $this->thisConfig, $this->RTEtypeVal, '', $this->thePidValue);
 				$content = $this->additionalJS_initial.'
 					<script type="text/javascript">'. implode(chr(10), $this->additionalJS_pre).'
 					</script>';
@@ -956,11 +956,11 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 	function showUpload($value, $name, $id)	{
 		$html = '';
 		$html .= '<input type="hidden" name="MAX_FILE_SIZE" value="'.$value['form']['maxfilesize'].'" />';
-		$html .= '<input type="hidden" id="'.$this->conf['ff_data']['div_id'].'_file_delete" name="tx_wfqbe_pi1[file_delete]" value="" />';
-		$html .= '<input type="hidden" id="'.$this->conf['ff_data']['div_id'].'_action_required" name="tx_wfqbe_pi1[action_required]" value="" />';
+		$html .= '<input type="hidden" id="'.$this->conf['ff_data']['div_id'].'_file_delete" name="Tx_Wfqbe_Pi1[file_delete]" value="" />';
+		$html .= '<input type="hidden" id="'.$this->conf['ff_data']['div_id'].'_action_required" name="Tx_Wfqbe_Pi1[action_required]" value="" />';
 		for ($i=0; $i<$value['form']['numofuploads']; $i++)	{
 			if (isset($this->pibase->piVars[$name][$i]) && $this->pibase->piVars[$name][$i]!="")	{
-				$html .= '<input id="'.$id.'_'.$i.'" type="hidden" name="tx_wfqbe_pi1['.$name.']['.$i.']" value="'.$this->pibase->piVars[$name][$i].'" />';
+				$html .= '<input id="'.$id.'_'.$i.'" type="hidden" name="Tx_Wfqbe_Pi1['.$name.']['.$i.']" value="'.$this->pibase->piVars[$name][$i].'" />';
 				$html .= '<a href="'.$this->blocks['fields'][$name]['form']['basedir'].$this->pibase->piVars[$name][$i].'">'.$this->pibase->piVars[$name][$i].'</a>';
 				if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('xajax') && $this->conf['enableXAJAX']==1)	{
 					$update = 'onclick=" document.getElementById(\''.$this->conf['ff_data']['div_id'].'_action_required\').value=\''.$name.'\'; document.getElementById(\''.$this->conf['ff_data']['div_id'].'_file_delete\').value=\''.$this->blocks['fields'][$name]['form']['basedir'].$this->pibase->piVars[$name][$i].'\'; document.getElementById(\''.$id.'_'.$i.'\').value=\'\'; document.getElementById(\'wfqbe_destination_id\').value=\''.$value['form']['onchange'].'\'; '.$this->prefixId .'processInsertData(xajax.getFormValues(\''.$this->conf['ff_data']['div_id'].'_form\')); return false;"';
@@ -973,7 +973,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 				}
 				$html .= '&nbsp;-&nbsp;(<a href="#"'.$update.'>delete</a>)';
 			}	else	{
-				$html .= '<input id="'.$id.'_'.$i.'" type="file" name="tx_wfqbe_pi1['.$name.']['.$i.']" value="" />';
+				$html .= '<input id="'.$id.'_'.$i.'" type="file" name="Tx_Wfqbe_Pi1['.$name.']['.$i.']" value="" />';
 			}
 			if ($i<$value['form']['numofuploads']-1)
 				$html .= '<br />';
@@ -983,7 +983,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 	
 	
 	function showRadio($value, $name, $h, $id)	{
-		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 		$listaRadio = '';
 
 		if ($value['form']['source']=='static')	{
@@ -993,9 +993,9 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 				else
 					$idi = '';
 				if ($value['form'][$i]['value']==$this->pibase->piVars[$name] || ($this->pibase->piVars[$name]=='' && $value['form'][$i]['value']==$this->pibase->piVars[$value['field']]))
-					$listaRadio .= '<input'.$idi.' checked="checked" type="radio" name="tx_wfqbe_pi1['.$name.']" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
+					$listaRadio .= '<input'.$idi.' checked="checked" type="radio" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
 				else
-					$listaRadio .= '<input'.$idi.' type="radio" name="tx_wfqbe_pi1['.$name.']" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
+					$listaRadio .= '<input'.$idi.' type="radio" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
 				if ($i<$value['form']['numValues']-1)
 					$listaRadio .= '<br />';
 			}
@@ -1020,9 +1020,9 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 				else
 					$idi = '';
 				if ($array[1]==$this->pibase->piVars[$name] || ($this->pibase->piVars[$name]=='' && $array[1]==$this->pibase->piVars[$value['field']]))
-					$listaRadio .= '<input'.$idi.' checked="checked" type="radio" name="tx_wfqbe_pi1['.$name.']" value="'.$array[1].'" /> '.$array[0].'<br />';
+					$listaRadio .= '<input'.$idi.' checked="checked" type="radio" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$array[1].'" /> '.$array[0].'<br />';
 				else
-					$listaRadio .= '<input'.$idi.' type="radio" name="tx_wfqbe_pi1['.$name.']" value="'.$array[1].'" /> '.$array[0].'<br />';
+					$listaRadio .= '<input'.$idi.' type="radio" name="Tx_Wfqbe_Pi1['.$name.']" value="'.$array[1].'" /> '.$array[0].'<br />';
 				$i++;
 			}
 			if ($listaRadio!='')
@@ -1034,7 +1034,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 	
 	
 	function showCheckbox($value, $name, $h, $id)	{
-		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+		$wfqbe = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 		$listaRadio = '';
 
 		if ($value['form']['source']=='static')	{
@@ -1044,9 +1044,9 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 				else
 					$idi='';
 				if ((is_array($this->pibase->piVars[$name]) && in_array($value['form'][$i]['value'],$this->pibase->piVars[$name])) || (!is_array($this->pibase->piVars[$name]) && $this->pibase->piVars[$value['field']]!='' && in_array($value['form'][$i]['value'],explode(',',$this->pibase->piVars[$value['field']]))))
-					$listaRadio .= '<input'.$idi.' checked="checked" type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
+					$listaRadio .= '<input'.$idi.' checked="checked" type="checkbox" name="Tx_Wfqbe_Pi1['.$name.'][]" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
 				else
-					$listaRadio .= '<input'.$idi.' type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
+					$listaRadio .= '<input'.$idi.' type="checkbox" name="Tx_Wfqbe_Pi1['.$name.'][]" value="'.$value['form'][$i]['value'].'" /> '.$value['form'][$i]['label'];
 				if ($i<$value['form']['numValues']-1)
 					$listaRadio .= '<br />';
 			}
@@ -1066,9 +1066,9 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 				else
 					$idi='';
 				if ((is_array($this->pibase->piVars[$name]) && in_array($array[1],$this->pibase->piVars[$name])) || (!is_array($this->pibase->piVars[$name]) && $this->pibase->piVars[$value['field']]!='' && in_array($array[1],explode(',',$this->pibase->piVars[$value['field']]))))
-					$listaRadio .= '<input'.$idi.' checked="checked" type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="'.$array[1].'" /> '.$array[0];
+					$listaRadio .= '<input'.$idi.' checked="checked" type="checkbox" name="Tx_Wfqbe_Pi1['.$name.'][]" value="'.$array[1].'" /> '.$array[0];
 				else
-					$listaRadio .= '<input'.$idi.' type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="'.$array[1].'" /> '.$array[0];
+					$listaRadio .= '<input'.$idi.' type="checkbox" name="Tx_Wfqbe_Pi1['.$name.'][]" value="'.$array[1].'" /> '.$array[0];
 				$listaRadio .= '<br />';
 				$i++;
 			}
@@ -1099,9 +1099,9 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 
 		if ($value['form']['multiple']=='si')	{
 			$size = $value['form']['size']>0 ? $value['form']['size'] : 5;
-			$listaSelect = '<select'.$update.' id="'.$id.'" name="tx_wfqbe_pi1['.$name.'][]" size="'.$size.'" multiple="multiple">';
+			$listaSelect = '<select'.$update.' id="'.$id.'" name="Tx_Wfqbe_Pi1['.$name.'][]" size="'.$size.'" multiple="multiple">';
 		}	else
-			$listaSelect = '<select'.$update.' id="'.$id.'" name="tx_wfqbe_pi1['.$name.'][]">';
+			$listaSelect = '<select'.$update.' id="'.$id.'" name="Tx_Wfqbe_Pi1['.$name.'][]">';
 		
 		if ($value['required']!=1)
 			$listaSelect .= '<option value="">'.$value['form']['labelEmptyValue'].'</option>';
@@ -1226,7 +1226,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 	 */
 	function uploadFiles($blocks)	{
 		$content = '';
-		foreach	($_FILES['tx_wfqbe_pi1']['error'] as $field_key => $field)	{
+		foreach	($_FILES['Tx_Wfqbe_Pi1']['error'] as $field_key => $field)	{
 			foreach	($field as $key => $error)	{
 				switch ($error){
 		            case 0:
@@ -1249,7 +1249,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 		            	}
 		            	if (is_dir($upDir))	{
 		            		if ( $blocks['fields'][strtoupper($field_key)]['form']['donotrename']==1)	{
-			            		$upFile = $upDir.$_FILES['tx_wfqbe_pi1']['name'][$field_key][$key];
+			            		$upFile = $upDir.$_FILES['Tx_Wfqbe_Pi1']['name'][$field_key][$key];
 			            		if ($blocks['fields'][strtoupper($field_key)]['form']['overwrite']==1)	{
 			            			if (file_exists($upFile))	{
 			            				unlink($upFile);
@@ -1258,7 +1258,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 				            		if (file_exists($upFile))	{
 				            			$i = 1;
 				            			do {
-				            				$fileParts = explode('.',$_FILES['tx_wfqbe_pi1']['name'][$field_key][$key]);
+				            				$fileParts = explode('.',$_FILES['Tx_Wfqbe_Pi1']['name'][$field_key][$key]);
 				            				if (count($fileParts)==1)
 				            					$filename = $fileParts[0].'_'.($i<10?'0'.$i:$i);
 				            				else	{
@@ -1271,28 +1271,28 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 				            		}
 			            		}
 			            	}	else	{
-		            			$upFile = $upDir.time()."_".$_FILES['tx_wfqbe_pi1']['name'][$field_key][$key];
+		            			$upFile = $upDir.time()."_".$_FILES['Tx_Wfqbe_Pi1']['name'][$field_key][$key];
 			            	}
 
-			            	if (move_uploaded_file($_FILES['tx_wfqbe_pi1']['tmp_name'][$field_key][$key], $upFile))	{
-			            		//$content .= '<br />File '.$_FILES['tx_wfqbe_pi1']['name'][$field_key][$key].' has been uploaded correctly';
+			            	if (move_uploaded_file($_FILES['Tx_Wfqbe_Pi1']['tmp_name'][$field_key][$key], $upFile))	{
+			            		//$content .= '<br />File '.$_FILES['Tx_Wfqbe_Pi1']['name'][$field_key][$key].' has been uploaded correctly';
 			            		$this->pibase->piVars[$field_key][] = str_replace($blocks['fields'][strtoupper($field_key)]['form']['basedir'],"",$upFile);
 			            	}	else
-			            		$content .= '<br />Error: file '.$_FILES['tx_wfqbe_pi1']['name'][$field_key][$key].' has NOT been uploaded correctly';
+			            		$content .= '<br />Error: file '.$_FILES['Tx_Wfqbe_Pi1']['name'][$field_key][$key].' has NOT been uploaded correctly';
 		            	}
 		            	break;
 		            case 1:
 		            case 2:
-		            	$content .= '<br />Error: '.$_FILES['tx_wfqbe_pi1']['name'][$field_key][$key].' is too big.';
+		            	$content .= '<br />Error: '.$_FILES['Tx_Wfqbe_Pi1']['name'][$field_key][$key].' is too big.';
 		            	break;
 		            case 3:
-		            	$content .= '<br />Error: '.$_FILES['tx_wfqbe_pi1']['name'][$field_key][$key].' has been partially uploaded.';
+		            	$content .= '<br />Error: '.$_FILES['Tx_Wfqbe_Pi1']['name'][$field_key][$key].' has been partially uploaded.';
 		            	break;
 		            case 4:
-		            	//$content .= '<br />Error: '.$_FILES['tx_wfqbe_pi1']['name'][$field_key][$key].', no such file.';
+		            	//$content .= '<br />Error: '.$_FILES['Tx_Wfqbe_Pi1']['name'][$field_key][$key].', no such file.';
 		            	break;
 		            default:
-		            	$content .= '<br />Error: '.$_FILES['tx_wfqbe_pi1']['name'][$field_key][$key].', unknown problem.';
+		            	$content .= '<br />Error: '.$_FILES['Tx_Wfqbe_Pi1']['name'][$field_key][$key].', unknown problem.';
 		            	break;
 		        }
 			}
@@ -1330,7 +1330,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 			
 			foreach ($data as $key => $value)	{
 				if (!is_numeric($key) && !$final)	{
-					$blockList .= "<input type='hidden' name='tx_wfqbe_pi1[".$key."]' value='".$this->charToEntity($value)."' />";
+					$blockList .= "<input type='hidden' name='Tx_Wfqbe_Pi1[".$key."]' value='".$this->charToEntity($value)."' />";
 				}
 			}
 			
@@ -1372,7 +1372,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 							$mA['###INSERT_VALUE###'] = implode(',', $value);
 						}
 						foreach ($value as $i => $v)	{
-							$mA['###INSERT_FIELD###'] .= "<input type='hidden' name='tx_wfqbe_pi1[".$key."][".$i."]' value='".$this->charToEntity($v)."' />";
+							$mA['###INSERT_FIELD###'] .= "<input type='hidden' name='Tx_Wfqbe_Pi1[".$key."][".$i."]' value='".$this->charToEntity($v)."' />";
 						}					
 					}	else	{
 						if ($blocks['fields'][$key]['type']=='password')	{
@@ -1399,7 +1399,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 							}
 							$mA['###INSERT_VALUE###'] = $value;
 						}
-						$mA['###INSERT_FIELD###'] = "<input type='hidden' name='tx_wfqbe_pi1[".$key."]' value='".$this->charToEntity($value)."' />";
+						$mA['###INSERT_FIELD###'] = "<input type='hidden' name='Tx_Wfqbe_Pi1[".$key."]' value='".$this->charToEntity($value)."' />";
 					}
 					
 					$blockList .= $this->cObj->substituteMarkerArray($blockTemplate, $mA);
@@ -1410,7 +1410,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 			
 			
 			if ($final && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('xajax') && $this->conf['enableXAJAX']==1)
-				$blockList .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_this_query]" value="'.$data['wfqbe_this_query'].'" />';
+				$blockList .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_this_query]" value="'.$data['wfqbe_this_query'].'" />';
 			
 			$content = $this->cObj->substituteSubpart($file, '###INSERT_BLOCK###', $blockList, 0,0);
 			
@@ -1444,9 +1444,9 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 					$mA['###INSERT_HIDDEN_FIELDS###'] = $API->getHiddenFields($this->pibase->piVars['orig'], 'orig');
 				else
 					$mA['###INSERT_HIDDEN_FIELDS###'] = $API->getHiddenFields($this->pibase->piVars, 'orig');
-				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_add_new]" value="'.$this->pibase->piVars['wfqbe_add_new'].'" />';
-				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_edit_subrecord]" value="'.$this->pibase->piVars['wfqbe_edit_subrecord'].'" />';
-				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_delete_subrecord]" value="'.$this->pibase->piVars['wfqbe_delete_subrecord'].'" />';
+				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_add_new]" value="'.$this->pibase->piVars['wfqbe_add_new'].'" />';
+				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_edit_subrecord]" value="'.$this->pibase->piVars['wfqbe_edit_subrecord'].'" />';
+				$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_delete_subrecord]" value="'.$this->pibase->piVars['wfqbe_delete_subrecord'].'" />';
 				
 				if ($this->mode=='edit')	{
 					$mA['###CONF_SUBMIT_LABEL###'] = $this->pibase->pi_getLL('update_confirm', 'Update');
@@ -1468,11 +1468,11 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 						return "";
 					else	{
 						if ($this->pibase->piVars['wfqbe_id_field']!="" && is_int(intval($this->pibase->piVars['wfqbe_id_field'])))	{
-							$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_id_field]" value="'.$this->pibase->piVars['wfqbe_id_field'].'" />';
+							$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_id_field]" value="'.$this->pibase->piVars['wfqbe_id_field'].'" />';
 						}	else	{
-							$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_id_field]" value="'.$this->pibase->piVars[$this->blocks['ID_field']].'" />';
+							$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_id_field]" value="'.$this->pibase->piVars[$this->blocks['ID_field']].'" />';
 						}
-						$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="tx_wfqbe_pi1[wfqbe_deleting_mode]" value="1" />';
+						$mA['###INSERT_HIDDEN_FIELDS###'] .= '<input type="hidden" name="Tx_Wfqbe_Pi1[wfqbe_deleting_mode]" value="1" />';
 					}
 				}	else	{
 					$mA['###CONF_SUBMIT_LABEL###'] = $this->pibase->pi_getLL('insert_confirm', 'Insert');
@@ -1559,7 +1559,7 @@ $rA['###INSERT_SELECT_WIZARD###'] = "<a href='#' onclick=\"javascript:submitActi
 								$RTEsetup = $pageTSConfig['RTE.'];
 								$this->thisConfig = $RTEsetup['default.'];
 								$this->thisConfig = $this->thisConfig['FE.'];
-								$insert_data[$blocks['fields'][$key]['field']] = $h->qstr($this->entityToChar($this->RTEObj->transformContent('db',$data[$key], 'tx_wfqbe_pi1', $key, $insert_data, $this->specConf, $this->thisConfig, '', $this->thePidValue)));
+								$insert_data[$blocks['fields'][$key]['field']] = $h->qstr($this->entityToChar($this->RTEObj->transformContent('db',$data[$key], 'Tx_Wfqbe_Pi1', $key, $insert_data, $this->specConf, $this->thisConfig, '', $this->thePidValue)));
 								$insert_data_row[$blocks['fields'][$key]['field']] = $data[$key];
 							}
 						}	else	{

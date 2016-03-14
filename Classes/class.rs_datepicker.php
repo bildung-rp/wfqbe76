@@ -7,7 +7,7 @@ class rs_datepicker {
 		$fieldValue = $this->pibase->piVars[$name]!='' ? $this->pibase->piVars[$name] :
 			($this->pibase->piVars[$value['field']]!='' ? $this->pibase->piVars[$value['field']] : '');
 
-		return '<input id="'.$id.'" class="date" type="text" name="tx_wfqbe_pi1['.$name.']" value="'.
+		return '<input id="'.$id.'" class="date" type="text" name="Tx_Wfqbe_Pi1['.$name.']" value="'.
 			$this->charToEntity($fieldValue).'" />';
 	}
 
@@ -16,7 +16,7 @@ class rs_datepicker {
 		$fieldValue = $this->pibase->piVars[$name]!='' ? $this->pibase->piVars[$name] :
 			($this->pibase->piVars[$value['field']]!='' ? $this->pibase->piVars[$value['field']] : '');
 
-		return '<input id="'.$id.'" class="time" type="text" name="tx_wfqbe_pi1['.$name.']" value="'.
+		return '<input id="'.$id.'" class="time" type="text" name="Tx_Wfqbe_Pi1['.$name.']" value="'.
 			$this->charToEntity($fieldValue).'" />';
 		
 	}

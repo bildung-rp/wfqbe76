@@ -149,7 +149,7 @@ class Tx_Wfqbe_Pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 		$content .= $this->sGetForm($form_built);
 
 		// The result box goes here
-		if (!\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1') && $form_built) {
+		if (!\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1') && $form_built) {
 			// We make an empty result box on the first call to send our xajax responses to
 			//$content .= '<div id="wfqbe_results"></div>';
 		} else {

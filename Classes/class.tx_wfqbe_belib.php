@@ -494,11 +494,11 @@ class tx_wfqbe_belib	{
 
 				if (is_array($value))
 
-					$searchParams .= '&tx_wfqbe_pi1['.$key.']='.implode(',',$value);
+					$searchParams .= '&Tx_Wfqbe_Pi1['.$key.']='.implode(',',$value);
 
 				else
 
-					$searchParams .= '&tx_wfqbe_pi1['.$key.']='.$value;
+					$searchParams .= '&Tx_Wfqbe_Pi1['.$key.']='.$value;
 
 		}
 
@@ -629,9 +629,9 @@ class tx_wfqbe_belib	{
 
 
 
-        if (isset($GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_wfqbe_pi1.'])) {
+        if (isset($GLOBALS['TSFE']->tmpl->setup['plugin.']['Tx_Wfqbe_Pi1.'])) {
 
-            $result = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_wfqbe_pi1.'];
+            $result = $GLOBALS['TSFE']->tmpl->setup['plugin.']['Tx_Wfqbe_Pi1.'];
 
         } else {
 
