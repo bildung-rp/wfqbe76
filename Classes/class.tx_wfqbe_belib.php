@@ -118,7 +118,7 @@ class tx_wfqbe_belib	{
 
 		$beVars = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_backend');
 
-		$this->piVars = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+		$this->piVars = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 
 		$query_id = intval($beVars['query']);
 
@@ -304,7 +304,7 @@ class tx_wfqbe_belib	{
 
 		
 
-		$PI1 = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_wfqbe_pi1');
+		$PI1 = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Wfqbe_Pi1');
 
 		$PI1->conf = $this->conf;
 
@@ -486,7 +486,7 @@ class tx_wfqbe_belib	{
 
 		$searchParams = '';
 
-		$wfqbeParams = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_wfqbe_pi1');
+		$wfqbeParams = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('Tx_Wfqbe_Pi1');
 
 		if (is_array($wfqbeParams))	{
 
