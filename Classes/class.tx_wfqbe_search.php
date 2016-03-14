@@ -353,8 +353,6 @@ class tx_wfqbe_search {
 			$query = 'SELECT DISTINCT '.$value['form']['field_view'].', '.$value['form']['field_insert'].' FROM '.$value['form']['table'].' '.$where.'ORDER BY '.$value['form']['field_view'];
 			$ris = $h->Execute($query);
 			
-			// emptyOption not needed for checkboxes
-			//$emptyOption = false;
 			while($array = $ris -> FetchRow()){
 				//if ($array[1]=="")
 					//$emptyOption = true;
@@ -363,12 +361,6 @@ class tx_wfqbe_search {
 				else
 					$listCheck .= '<input'.$update.' type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="'.$array[1].'" /> '.$array[0].'<br />';
 			}
-			//if (!$emptyOption)	{
-				//if ($wfqbe[$name]=="")
-					//$listCheck = '<input id="'.$id.'"'.$update.' checked="checked" type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="" /> <br />'.$listCheck;
-				//else
-					//$listCheck = '<input id="'.$id.'"'.$update.' type="checkbox" name="tx_wfqbe_pi1['.$name.'][]" value="" /> <br />'.$listCheck;
-			//}
 			if ($listCheck!='')
 				$listCheck = substr($listCheck, 0, -6);
 		}
@@ -501,7 +493,6 @@ class tx_wfqbe_search {
 				$JSCalendar->setNLP(false);
 			
 			$field = $JSCalendar->render($wfqbe[$name], 'tx_wfqbe_pi1['.$name.']');
-			//$field = str_replace('name="tx_wfqbe_pi1['.$name.']_hr"', 'name="tx_wfqbe_pi1['.$name.']"', $field);
 
 			// get initialisation code of the calendar
 			if (($jsCode = $JSCalendar->getMainJS()) != '') {
