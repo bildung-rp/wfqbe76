@@ -304,7 +304,7 @@ class tx_wfqbe_belib	{
 
 		
 
-		$PI1 = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Wfqbe_Pi1');
+		$PI1 = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('rw1-Tx_Wfqbe_Pi1');
 
 		$PI1->conf = $this->conf;
 
