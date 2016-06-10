@@ -59,7 +59,7 @@ class tx_wfqbe_connect {
 		
 		if ($credentials == 0) {
 			// Local TYPO3 DB
-			$h = NewADOConnection("mysql"); // TODO: correct this for DBAL compatibility
+			$h = NewADOConnection("mysqli"); // TODO: correct this for DBAL compatibility
 			$resultConnection = $h->Connect(TYPO3_db_host, TYPO3_db_username, TYPO3_db_password, TYPO3_db);
 			if ($resultConnection) {
 				global $TYPO3_CONF_VARS;
